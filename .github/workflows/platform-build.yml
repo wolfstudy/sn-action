@@ -36,8 +36,8 @@ jobs:
           zip –r sn-platform.zip sn-platform/*
 
       - name: publish code to github
-          uses: skx/github-action-publish-binaries@release-0.11
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          with:
-            args: 'sn-platform*'
+        uses: skx/github-action-publish-binaries@release-0.11
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          args: 'sn-platform*'
