@@ -11,10 +11,12 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v1
+
       - name: get master code
         run: |
           cd platform/secrets
           ./get-master-code.sh
+
       - name: get dependence files
         run: |
           cd platform/secrets && ./test.sh
@@ -24,13 +26,16 @@ jobs:
           cp -R etc/ sn-platform/etc
           cp -R share/ sn-platform/share
           cp -r README sn-platform/
+
       - name: build tarball
         run: |
           tar -czvf sn-platform.tar.gz sn-platform
+
       - name: build zip
         run: |
           zip –r sn-platform.zip sn-platform/*
-      - name: publish
+
+      - name: publish code to github
           uses: skx/github-action-publish-binaries@release-0.11
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
