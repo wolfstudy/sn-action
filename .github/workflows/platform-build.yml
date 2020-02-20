@@ -12,20 +12,11 @@ jobs:
       - name: checkout
         uses: actions/checkout@v1
 
-      - name: get master code
-        run: |
-          cd platform/secrets
-          ./get-master-code.sh
-
       - name: get dependence files
         run: |
-          cd platform/secrets && ./test.sh
-          cd ../ && mkdir -p sn-platform
-          cp -R bin/ sn-platform/bin
-          cp -R lib/ sn-platform/lib
-          cp -R etc/ sn-platform/etc
-          cp -R share/ sn-platform/share
-          cp -r README sn-platform/
+          cd platform/secrets
+          ./test.sh && ./get-master-code.sh
+          mv sn-platform ../
 
       - name: build tarball
         run: |
