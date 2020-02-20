@@ -6,4 +6,4 @@ cp -R platform/bin/ sn-platform/bin
 cp -R platform/lib/ sn-platform/lib
 cp -R platform/etc/ sn-platform/etc
 cp -R platform/share/ sn-platform/share
-cp -r README sn-platform/
+cp -r platform/README sn-platform/
