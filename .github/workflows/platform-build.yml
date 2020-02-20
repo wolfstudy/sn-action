@@ -22,14 +22,14 @@ jobs:
           cd platform/
           tar -czvf sn-platform.tar.gz sn-platform
 
-      - name: build zip
-        run: |
-          cd platform/
-          zip –r sn-platform.zip sn-platform/*
+#      - name: build zip
+#        run: |
+#          cd platform/
+#          zip –r sn-platform.zip sn-platform/*
 
       - name: publish code to github
         uses: skx/github-action-publish-binaries@release-0.11
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          args: 'sn-platform*'
+          args: 'sn-platform.tar.gz'
