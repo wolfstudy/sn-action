@@ -16,14 +16,15 @@ jobs:
         run: |
           cd platform/secrets
           ./test.sh && ./get-master-code.sh
-          mv sn-platform ../
 
       - name: build tarball
         run: |
+          cd platform/
           tar -czvf sn-platform.tar.gz sn-platform
 
       - name: build zip
         run: |
+          cd platform/
           zip –r sn-platform.zip sn-platform/*
 
       - name: publish code to github

@@ -7,3 +7,4 @@ cp -R platform/lib/ sn-platform/lib
 cp -R platform/etc/ sn-platform/etc
 cp -R platform/share/ sn-platform/share
 cp -r platform/README sn-platform/
+mv sn-action/sn-platform ../
