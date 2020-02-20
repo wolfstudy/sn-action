@@ -1,0 +1,29 @@
+name: Build StreamNative Platform
+on:
+  push:
+    branches:
+      - release/platform
+
+jobs:
+  build:
+    name: build sn platform
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v1
+
+      - name: get dependence files
+        run: |
+          cd platform/secrets
+          cd ../ && mkdir -p sn-platform
+          cp -R bin/ sn-platform/bin
+          cp -R lib/ sn-platform/lib
+          cp -R etc/ sn-platform/etc
+          cp -R share/ sn-platform/share
+          cp -r README sn-platform/
+      - name: build tarball
+        run: |
+          tar -czvf sn-platform.tar.gz sn-platform
+      - name: build zip
+        run: |
+          zip –r sn-platform.zip sn-platform/*
