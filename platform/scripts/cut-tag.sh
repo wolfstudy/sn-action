@@ -20,7 +20,7 @@
 
 set -e -x
 
-VERSION=`cat ../platform/VERSION`
+VERSION=`cat ./platform/VERSION`
 
 # create release branch
 RELEASE_BRANCH="branch-${VERSION}"
