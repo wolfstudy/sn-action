@@ -3,6 +3,8 @@
 # Upload binary artifacts when a new release is made.
 #
 
+set -e -x
+
 # Ensure that the ACCESS_TOKEN secret is included
 if [[ -z "$ACCESS_TOKEN" ]]; then
   echo "Set the ACCESS_TOKEN env variable."
@@ -58,6 +60,7 @@ CONTENT=$(curl -s -H "Authorization: token $ACCESS_TOKEN"  \
      -d '{"tag_name": "'${VERSION}'", "name":"release-'${VERSION}'"}'  \
      "https://api.github.com/repos/${GITHUB_REPOSITORY}/releases")
 RELEASE_ID=$(echo $CONTENT | jq --raw-output '.id')
+echo $RELEASE_ID
 
 # Prepare the headers for our curl-command.
 AUTH_HEADER="Authorization: token ${ACCESS_TOKEN}"
