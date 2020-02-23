@@ -1,0 +1,33 @@
+name: Create release tag - StreamNative
+# This workflow is triggered on pushes to the repository.
+on:
+  push:
+    branches:
+      - sn_release
+
+jobs:
+  build:
+    name: Create release tag
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v1
+
+      - name: Cut a release tag
+        id: release
+        env:
+          SNBOT_GITHUB_TOKEN: ${{ secrets.SNBOT_GITHUB_TOKEN }}
+          SNBOT_SECRET_PASSPHRASE: ${{ secrets.SNBOT_SECRET_PASSPHRASE }}
+        run: |
+          export PULSAR_HOME=$(pwd)
+          echo "PULSAR_HOME: ${PULSAR_HOME}"
+          ls -a
+          ./platform/scripts/cut_tag.sh
+
+#      - name: Trigger release build
+#        run: |
+#          cd .sn-pulsar-ci-scripts
+#          git fetch origin
+#          git merge origin/sn_release
+#          git commit --allow-empty -m "/snbot release_tag ${RELEASE_TAG}"
+#          git push origin sn_release
