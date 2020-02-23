@@ -29,7 +29,7 @@ git checkout -b ${RELEASE_BRANCH}
 echo "Created release branch '${RELEASE_BRANCH}'."
 
 # commit
-git commit -m "Release ${VERSION}" -a
+git commit --allow-empty -m "Release ${VERSION}"
 
 # create a candidate tag
 TAG="v${VERSION}"
