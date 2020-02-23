@@ -55,7 +55,7 @@ fi
 AUTH_HEADER="Authorization: token ${ACCESS_TOKEN}"
 
 # Create the correct Upload URL.
-RELEASE_ID=$(cat ../VERSION)
+RELEASE_ID=$(cat /sn-platform/platform/VERSION)
 
 # For each matching file..
 for file in $*; do
