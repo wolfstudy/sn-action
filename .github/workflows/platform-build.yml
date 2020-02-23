@@ -22,7 +22,7 @@ jobs:
           cd platform/
           version=`cat VERSION`
           tar -czvf sn-platform-$version.tar.gz sn-platform
-          mv sn-platform-$version.tar.gz ../
+          ls -a
 
 #      - name: build zip
 #        run: |
