@@ -51,11 +51,18 @@ if [ -z "${found}" ]; then
     exit 1
 fi
 
+GITHUB_REPOSITORY="wolfstudy/sn-action"
+VERSION=$(cat /sn-platform/platform/VERSION)
+
+CONTENT=$(curl -s -H "Authorization: token $ACCESS_TOKEN"  \
+     -d '{"tag_name": "'${VERSION}'", "name":"release-'${VERSION}'"}'  \
+     "https://api.github.com/repos/${GITHUB_REPOSITORY}/releases")
+RELEASE_ID=$(echo $CONTENT | jq --raw-output '.id')
+
 # Prepare the headers for our curl-command.
 AUTH_HEADER="Authorization: token ${ACCESS_TOKEN}"
 
 # Create the correct Upload URL.
-RELEASE_ID=$(cat /sn-platform/platform/VERSION)
 
 # For each matching file..
 for file in $*; do

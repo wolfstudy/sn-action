@@ -12,7 +12,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v1
 
-      - name: Cut a release tag
+      - name: Cut a release
         id: release
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}

@@ -20,14 +20,7 @@
 
 set -e -x
 
-cd ${PULSAR_HOME}
-VERSION=`cat ./platform/VERSION`
-
-# create a tag
-TAG="v${VERSION}"
-git tag -a ${TAG} -m "Release ${TAG}"
-echo "Created tag '${TAG}'."
-
-# push tag
-git push https://${ACCESS_TOKEN}:x-oauth-basic@github.com/wolfstudy/sn-action.git master --tags
+curl -s -H "Authorization: token $token"  \
+     -d '{"tag_name": "test", "name":"release-0.0.1","body":"this is a test release"}'  \
+     "https://api.github.com/repos/$repo/releases" | jq -r '.upload_url'
 

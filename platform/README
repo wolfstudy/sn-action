@@ -1,0 +1,25 @@
+curl -v -sSL \
+-XPOST \
+-H "Authorization: token 2d0a78dceacffddcf74a4582d1e7bd177c7a23ee" \
+--upload-file VERSION \
+--header "Content-Type:application/octet-stream" \
+"https://uploads.github.com/repos/wolfstudy/sn-action/releases/v0.0.1/assets?name=VERSION"
+
+
+
+23910772
+
+
+curl -s -H "Authorization: token $ACCESS_TOKEN"  \
+     -d '{"tag_name": "test", "name":"release-0.0.1","body":"this is a test release"}'  \
+     "https://api.github.com/repos/wolfstudy/sn-action/releases"
+
+
+curl -v \
+    -XPOST \
+    -H "Authorization: token 2d0a78dceacffddcf74a4582d1e7bd177c7a23ee" \
+    -H "Content-Type: $(file -b --mime-type $FILE)" \
+    --data-binary @$FILE \
+    "https://uploads.github.com/repos/wolfstudy/sn-action/releases/v0.0.1/assets?name=$(basename $FILE)"
+
+
