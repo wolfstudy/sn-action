@@ -6,6 +6,6 @@ RUN apt-get install --yes \
   curl \
   jq
 
-COPY upload-script /usr/bin/upload-script
+COPY upload-script.sh /usr/bin/upload-script
 
 ENTRYPOINT ["upload-script"]
