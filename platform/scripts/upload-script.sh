@@ -3,9 +3,9 @@
 # Upload binary artifacts when a new release is made.
 #
 
-# Ensure that the GITHUB_TOKEN secret is included
-if [[ -z "$GITHUB_TOKEN" ]]; then
-  echo "Set the GITHUB_TOKEN env variable."
+# Ensure that the ACCESS_TOKEN secret is included
+if [[ -z "$ACCESS_TOKEN" ]]; then
+  echo "Set the ACCESS_TOKEN env variable."
   exit 1
 fi
 
@@ -52,7 +52,7 @@ if [ -z "${found}" ]; then
 fi
 
 # Prepare the headers for our curl-command.
-AUTH_HEADER="Authorization: token ${GITHUB_TOKEN}"
+AUTH_HEADER="Authorization: token ${ACCESS_TOKEN}"
 
 # Create the correct Upload URL.
 RELEASE_ID=$(cat ../VERSION)
