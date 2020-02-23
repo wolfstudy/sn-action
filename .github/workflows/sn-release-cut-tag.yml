@@ -3,7 +3,7 @@ name: Create release tag - StreamNative
 on:
   push:
     branches:
-      - sn_release
+      - release/platform
 
 jobs:
   build:
