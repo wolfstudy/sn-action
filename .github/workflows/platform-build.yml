@@ -38,4 +38,4 @@ jobs:
 #          args: 'sn-platform*'
         run: |
           docker build -f platform/scripts/Dockerfile -t sn-platform .
-          docker run -e ACCESS_TOKEN=${{ secrets.ACCESS_TOKEN }} -v $(pwd):/platform sn-platform sh -c 'upload-script.sh sn-platform*'
+          docker run -e ACCESS_TOKEN=${{ secrets.ACCESS_TOKEN }} -v $(pwd):/sn-platform sn-platform sh -c 'upload-script.sh /sn-platform/platform/sn-platform*'
