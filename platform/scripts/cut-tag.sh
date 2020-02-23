@@ -20,6 +20,7 @@
 
 set -e -x
 
+cd ${PULSAR_HOME}
 VERSION=`cat ./platform/VERSION`
 
 # create release branch

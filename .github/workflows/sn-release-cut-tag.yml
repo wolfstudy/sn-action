@@ -22,8 +22,7 @@ jobs:
           export PULSAR_HOME=$(pwd)
           echo "PULSAR_HOME: ${PULSAR_HOME}"
           ls -a
-          cd platform/scripts
-          ./cut-tag.sh
+          ./platform/scripts/cut-tag.sh
 
 #      - name: Trigger release build
 #        run: |
