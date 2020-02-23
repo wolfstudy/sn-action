@@ -1,0 +1,10 @@
+[user]
+	email = xiaolong@streamnative.io
+	name = StreamNative Platform
+	signingkey = 36E5CE53CB0AFDA0
+[credential]
+	helper = cache --timeout=3600
+[core]
+	autocrlf = input
+[commit]
+	gpgsign = true
