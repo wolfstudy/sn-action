@@ -29,4 +29,4 @@ RM_USER=${RM_USER:-"sn_platform"}
 cp ${CI_SCRIPTS_HOME}/gpg/${RM_USER}/.gitconfig ${HOME}/.gitconfig
 
 # import keys
-${CI_SCRIPTS_HOME}/scripts/import_gpg_key.sh
+#${CI_SCRIPTS_HOME}/scripts/import_gpg_key.sh
