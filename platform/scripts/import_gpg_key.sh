@@ -23,7 +23,7 @@ set -e -x
 BINDIR=`dirname "$0"`
 CI_SCRIPTS_HOME=`cd ${BINDIR}/..;pwd`
 
-RM_USER=${RM_USER:-"sn-platform"}
+RM_USER=${RM_USER:-"sn_platform"}
 CAPITALIZED_RM_USER=`echo "${RM_USER}" | tr '[a-z]' '[A-Z]'`
 
 # Decrypt the file
