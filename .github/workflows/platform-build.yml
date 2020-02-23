@@ -22,6 +22,7 @@ jobs:
           cd platform/
           version=`cat VERSION`
           tar -czvf sn-platform-$version.tar.gz sn-platform
+          rm -rf sn-platform
           ls -a
 
 #      - name: build zip
@@ -38,4 +39,4 @@ jobs:
 #          args: 'sn-platform*'
         run: |
           docker build -f platform/scripts/Dockerfile -t sn-platform .
-          docker run -e ACCESS_TOKEN=${{ secrets.ACCESS_TOKEN }} -v $(pwd):/sn-platform sn-platform sh -c 'upload-script.sh /sn-platform/platform/sn-platform*'
+          docker run -e ACCESS_TOKEN=${{ secrets.ACCESS_TOKEN }} -v $(pwd):/sn-platform sn-platform sh -c 'upload-script.sh /sn-platform/platform/sn-platform-*'
