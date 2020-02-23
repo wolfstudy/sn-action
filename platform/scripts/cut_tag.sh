@@ -23,20 +23,11 @@ set -e -x
 cd ${PULSAR_HOME}
 VERSION=`cat ./platform/VERSION`
 
-# create release branch
-RELEASE_BRANCH="branch-${VERSION}"
-git checkout -b ${RELEASE_BRANCH}
-echo "Created release branch '${RELEASE_BRANCH}'."
-
-# commit
-git commit --allow-empty -m "Release ${VERSION}"
-
-# create a candidate tag
+# create a tag
 TAG="v${VERSION}"
-GIT_TRACE=1 git tag ${TAG} -m "Release ${TAG}"
+git tag -a ${TAG} -m "Release ${TAG}"
 echo "Created tag '${TAG}'."
 
 # push tag
-git push origin ${TAG}
+git push https://${ACCESS_TOKEN}:x-oauth-basic@github.com/wolfstudy/sn-action.git master --tags
 
-echo ::set-output name=release_tag::${TAG}

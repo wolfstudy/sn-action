@@ -12,6 +12,16 @@ jobs:
       - name: checkout
         uses: actions/checkout@v1
 
+      - name: Cut a release tag
+        id: release
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        run: |
+          export PULSAR_HOME=$(pwd)
+          echo "PULSAR_HOME: ${PULSAR_HOME}"
+          ls -a
+          ./platform/scripts/cut_tag.sh
+
       - name: get dependence files
         run: |
           cd platform/scripts

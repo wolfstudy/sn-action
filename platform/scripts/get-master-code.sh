@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-git clone https://github.com/wolfstudy/sn-action.git
+git clone https://${ACCESS_TOKEN}:x-oauth-basic@github.com/wolfstudy/sn-action.git
 cd sn-action && mkdir sn-platform
 cp -R platform/bin/ sn-platform/bin
 cp -R platform/lib/ sn-platform/lib
